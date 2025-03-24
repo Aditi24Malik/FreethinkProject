@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Government Schemes</title>
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    .box-style {
+        border: 1px solid #ccc;
+        padding: 1rem;
+        border-radius: 8px;
+    }
+    .category-grid {
+      display: none;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+
+    .category-card {
+      text-align: center;
+      width: 180px;
+    }
+
+    .category-card img {
+      width: 60px;
+      height: 60px;
+      margin-bottom: 10px;
+    }
+
+    .category-card .count {
+      font-weight: bold;
+      color: #2e7d32;
+    }
+
+    .filter-tabs {
+      display: flex;
+      justify-content: center;
+      margin-top: 30px;
+      gap: 1rem;
+    }
+
+    .tab {
+      padding: 10px 20px;
+      border: 1px solid #ccc;
+      cursor: pointer;
+      border-radius: 6px;
+      font-weight: bold;
+    }
+
+    .tab.active {
+      background-color: #2e7d32;
+      color: white;
+    }
+
+    .category-card:hover {
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      transform: translateY(-5px);
+      transition: all 0.2s ease-in-out;
+      cursor: pointer;
+    }
+
+  </style>
+</head>
+<body>
+
+  <!-- Profile Section with link to profile.html -->
+  <a href="profile.html" class="profile-link">
+    <div class="profile-section">
+      <img src="profile-user.png" alt="Profile Icon" class="profile-icon">
+      <span class="profile-name">My Profile</span>
+    </div>
+  </a>
+
+  <!-- Header & Hero Image -->
+  <h1>Welcome to Government Scheme Portal</h1>
+  <div class="image-flex">
+    <img src="govt1.jpg" alt="Government Schemes Banner" class="hero-image">
+  </div>
+
+  <!-- Navigation Links -->
+  <div class="nav-links">
+    <a href="apply.html">Apply for Scheme</a>
+  </div>
+
+  <!-- Scheme Stats Section -->
+  <div class="scheme-stats">
+    <div class="scheme-card">
+      <h2>3250+</h2>
+      <p>Total Schemes →</p>
+    </div>
+    <div class="scheme-card">
+      <h2>530+</h2>
+      <p>Central Schemes →</p>
+    </div>
+    <div class="scheme-card">
+      <h2>2720+</h2>
+      <p>States/UTs Schemes →</p>
+    </div>
+  </div>
+
+  <!-- Search Bar -->
+<div style="display: flex; justify-content: center; margin-top: 2rem;">
+    <input type="text" id="searchInput" placeholder="Search for schemes..." style="padding: 10px; width: 300px; border: 1px solid #ccc; border-radius: 6px;">
+    <button onclick="searchSchemes()" style="margin-left: 10px; padding: 10px 16px; background-color: #2e7d32; color: white; border: none; border-radius: 6px; cursor: pointer;">Search</button>
+  </div>
+  
+  <!-- Tab Filters -->
+  <div class="filter-tabs">
+    <div class="tab" onclick="showCategories(event)">Categories</div>
+    <div class="tab" onclick="showStates(event)">States/UTs</div>
+    <div class="tab" onclick="showMinistries(event)">Central Ministries</div>
+  </div>
+
+  <!-- Categories Grid (Initially Hidden) -->
+  <div id="categoryGrid" class="category-grid">
+    <h2 style="width: 100%; text-align: center; color: black;">Find schemes based on categories</h2>
+    <div class="category-card">
+      <img src="agriculture.png" alt="Agriculture">
+      <div class="count">422 Schemes</div>
+      <p>Agriculture, Rural & Environment</p>
+    </div>
+    <div class="category-card">
+      <img src="banking.png" alt="Banking">
+      <div class="count">217 Schemes</div>
+      <p>Banking, Financial Services and Insurance</p>
+    </div>
+    <div class="category-card">
+      <img src="business.png" alt="Business">
+      <div class="count">491 Schemes</div>
+      <p>Business & Entrepreneurship</p>
+    </div>
+    <div class="category-card">
+      <img src="education.png" alt="Education">
+      <div class="count">792 Schemes</div>
+      <p>Education & Learning</p>
+    </div>
+    <div class="category-card">
+      <img src="healthcare.png" alt="Health">
+      <div class="count">220 Schemes</div>
+      <p>Health & Wellness</p>
+    </div>
+    <div class="category-card">
+      <img src="housing.png" alt="Housing">
+      <div class="count">92 Schemes</div>
+      <p>Housing & Shelter</p>
+    </div>
+    <div class="category-card">
+      <img src="law.png" alt="Law">
+      <div class="count">9 Schemes</div>
+      <p>Public Safety, Law & Justice</p>
+    </div>
+    <div class="category-card">
+      <img src="science.png" alt="Science">
+      <div class="count">64 Schemes</div>
+      <p>Science, IT & Communications</p>
+    </div>
+    <div class="category-card">
+      <img src="skills.png" alt="Skills">
+      <div class="count">261 Schemes</div>
+      <p>Skills & Employment</p>
+    </div>
+    <div class="category-card">
+      <img src="social.png" alt="Social Welfare">
+      <div class="count">1255 Schemes</div>
+      <p>Social Welfare & Empowerment</p>
+    </div>
+  </div>
+
+  <!-- States/UTs Grid (Initially Hidden) -->
+<div id="stateGrid" class="category-grid">
+    <h2 style="width: 100%; text-align: center; color: black;">Explore Schemes on States/UTs</h2>
+    <div class="category-card" style="border: 1px solid #ccc; padding: 1rem; border-radius: 8px;">
+      <div class="count">19 UT<br>514 Central</div>
+      <p>Andaman and Nicobar</p>
+    </div>
+    <div class="category-card" style="border: 1px solid #ccc; padding: 1rem; border-radius: 8px;">
+      <div class="count">66 State<br>515 Central</div>
+      <p>Andhra Pradesh</p>
+    </div>
+    <div class="category-card" style="border: 1px solid #ccc; padding: 1rem; border-radius: 8px;">
+      <div class="count">35 State<br>519 Central</div>
+      <p>Arunachal Pradesh</p>
+    </div>
+    <div class="category-card" style="border: 1px solid #ccc; padding: 1rem; border-radius: 8px;">
+      <div class="count">47 State<br>520 Central</div>
+      <p>Assam</p>
+    </div>
+    <div class="category-card" style="border: 1px solid #ccc; padding: 1rem; border-radius: 8px;">
+      <div class="count">101 State<br>514 Central</div>
+      <p>Bihar</p>
+    </div>
+    <div class="category-card" style="border: 1px solid #ccc; padding: 1rem; border-radius: 8px;">
+      <div class="count">20 UT<br>514 Central</div>
+      <p>Chandigarh</p>
+    </div>
+    <div class="category-card" style="border: 1px solid #ccc; padding: 1rem; border-radius: 8px;">
+      <div class="count">89 State<br>515 Central</div>
+      <p>Chhattisgarh</p>
+    </div>
+    <div class="category-card" style="border: 1px solid #ccc; padding: 1rem; border-radius: 8px;">
+      <div class="count">41 UT<br>515 Central</div>
+      <p>Delhi</p>
+    </div>
+    <div class="category-card" style="border: 1px solid #ccc; padding: 1rem; border-radius: 8px;">
+      <div class="count">146 State<br>515 Central</div>
+      <p>Goa</p>
+    </div>
+    <div class="category-card" style="border: 1px solid #ccc; padding: 1rem; border-radius: 8px;">
+      <div class="count">229 State<br>516 Central</div>
+      <p>Gujarat</p>
+    </div>
+    <div class="category-card" style="border: 1px solid #ccc; padding: 1rem; border-radius: 8px;">
+      <div class="count">189 State<br>514 Central</div>
+      <p>Haryana</p>
+    </div>
+    <div class="category-card" style="border: 1px solid #ccc; padding: 1rem; border-radius: 8px;">
+      <div class="count">67 State<br>514 Central</div>
+      <p>Himachal Pradesh</p>
+    </div>
+    <div class="category-card" style="border: 1px solid #ccc; padding: 1rem; border-radius: 8px;">
+      <div class="count">45 UT<br>518 Central</div>
+      <p>Jammu and Kashmir</p>
+    </div>
+    <div class="category-card" style="border: 1px solid #ccc; padding: 1rem; border-radius: 8px;">
+      <div class="count">95 State<br>514 Central</div>
+      <p>Jharkhand</p>
+    </div>
+    <div class="category-card" style="border: 1px solid #ccc; padding: 1rem; border-radius: 8px;">
+      <div class="count">62 State<br>515 Central</div>
+      <p>Karnataka</p>
+    </div>
+    <div class="category-card" style="border: 1px solid #ccc; padding: 1rem; border-radius: 8px;">
+      <div class="count">73 State<br>516 Central</div>
+      <p>Kerala</p>
+    </div>
+  </div>
+  
+  <!-- Central Ministries Grid (Initially Hidden) -->
+<div id="ministryGrid" class="category-grid">
+    <h2 style="width: 100%; text-align: center; color: black;">Explore Central Government Schemes</h2>
+    <div class="category-card box-style">
+      <p>Comptroller And Auditor General of India</p>
+      <div class="count">2 Schemes</div>
+    </div>
+    <div class="category-card box-style">
+      <p>Ministry Of Agriculture and Farmers Welfare</p>
+      <div class="count">47 Schemes</div>
+    </div>
+    <div class="category-card box-style">
+      <p>Ministry Of Chemicals And Fertilizers</p>
+      <div class="count">2 Schemes</div>
+    </div>
+    <div class="category-card box-style">
+      <p>Ministry Of Commerce And Industry</p>
+      <div class="count">28 Schemes</div>
+    </div>
+    <div class="category-card box-style">
+      <p>Ministry Of Communication</p>
+      <div class="count">5 Schemes</div>
+    </div>
+    <div class="category-card box-style">
+      <p>Ministry Of Consumer Affairs, Food and Public Distribution</p>
+      <div class="count">1 Schemes</div>
+    </div>
+    <div class="category-card box-style">
+      <p>Ministry of Corporate Affairs</p>
+      <div class="count">2 Schemes</div>
+    </div>
+    <div class="category-card box-style">
+      <p>Ministry Of Culture</p>
+      <div class="count">13 Schemes</div>
+    </div>
+    <div class="category-card box-style">
+      <p>Ministry Of Defence</p>
+      <div class="count">11 Schemes</div>
+    </div>
+    <div class="category-card box-style">
+      <p>Ministry Of Development of North Eastern Region</p>
+      <div class="count">1 Schemes</div>
+    </div>
+    <div class="category-card box-style">
+      <p>Ministry Of Earth Sciences</p>
+      <div class="count">1 Schemes</div>
+    </div>
+    <div class="category-card box-style">
+      <p>Ministry of Education</p>
+      <div class="count">72 Schemes</div>
+    </div>
+    <div class="category-card box-style">
+      <p>Ministry of Electronics and Information Technology</p>
+      <div class="count">6 Schemes</div>
+    </div>
+    <div class="category-card box-style">
+      <p>Ministry Of Environment, forests and climate change</p>
+      <div class="count">2 Schemes</div>
+    </div>
+    <div class="category-card box-style">
+      <p>Ministry Of External Affairs</p>
+      <div class="count">4 Schemes</div>
+    </div>
+  </div>
+  
+
+  <!-- About Section -->
+  <section class="about">
+    <h2>About This Portal</h2>
+    <div class="image-flex">
+      <img src="govt2.jpg" alt="Digital India" class="about-image">
+    </div>
+    <p>
+      The Government Scheme Portal is a centralized platform designed to help citizens apply for various government schemes with ease. It streamlines the application process and ensures transparency at every step.
+    </p>
+    <p>
+      Applicants can track their application status as it moves through verification, scrutiny, and final approval by the concerned officers. The portal supports multiple schemes and ensures a smooth and accessible experience for all users.
+    </p>
+    <p>
+      Our goal is to make government services more accessible, efficient, and citizen-friendly.
+    </p>
+  </section>
+
+  <script>
+    function showCategories(event) {
+      document.getElementById("categoryGrid").style.display = "flex";
+      document.getElementById("stateGrid").style.display="none";
+      document.getElementById("ministryGrid").style.display="none";
+      setActiveTab(event.target);
+    }
+    function showStates(event) {
+      document.getElementById("categoryGrid").style.display = "none";
+      document.getElementById("stateGrid").style.display="flex";
+      document.getElementById("ministryGrid").style.display="none";
+      setActiveTab(event.target);
+    }
+    function showMinistries(event) 
+    {
+    document.getElementById("categoryGrid").style.display = "none";
+    document.getElementById("stateGrid").style.display = "none";
+    document.getElementById("ministryGrid").style.display = "flex";
+    setActiveTab(event.target);
+    }
+    function setActiveTab(clickedTab)
+    {
+        const tabs = document.querySelectorAll('.tab');
+        tabs.forEach(tab => tab.classList.remove('active'));
+        clickedTab.classList.add('active');
+    }
+    function searchSchemes() {
+  const query = document.getElementById("searchInput").value.toLowerCase();
+  alert("Searching for: " + query); // Placeholder action
+
+  // Optionally, you could filter category/state/ministry cards here
+}
+
+  </script>
+
+</body>
+</html>

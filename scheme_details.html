@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Scheme Details</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #fff;
+      color: #222;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: auto;
+      padding: 40px 20px;
+    }
+
+    .layout {
+      display: flex;
+      gap: 40px;
+    }
+
+    .sidebar {
+      flex: 0 0 200px;
+    }
+
+    .sidebar a {
+      display: block;
+      color: #333;
+      text-decoration: none;
+      padding: 10px 0;
+      font-weight: 500;
+    }
+
+    .main-content {
+      flex: 1;
+    }
+
+    .tags span {
+      background-color: #e7f5ec;
+      color: #006c3e;
+      padding: 6px 12px;
+      border-radius: 15px;
+      font-size: 13px;
+      margin-right: 8px;
+      display: inline-block;
+      margin-bottom: 10px;
+    }
+
+    .title {
+      font-size: 24px;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+
+    .location {
+      color: #888;
+      font-size: 14px;
+      margin-bottom: 15px;
+    }
+
+    .check-eligibility {
+      display: inline-block;
+      border: 1px solid #006cfa;
+      color: #006cfa;
+      padding: 8px 16px;
+      border-radius: 6px;
+      text-decoration: none;
+      margin: 15px 0;
+      font-weight: 500;
+    }
+
+    .section-title {
+      font-size: 18px;
+      font-weight: bold;
+      margin: 30px 0 10px;
+    }
+
+    .details-text {
+      font-size: 15px;
+      line-height: 1.6;
+      color: #444;
+    }
+
+    .right-panel {
+      width: 250px;
+      flex-shrink: 0;
+    }
+
+    .box {
+      background: #f9f9f9;
+      padding: 15px;
+      margin-bottom: 20px;
+      border-radius: 8px;
+    }
+
+    .box h4 {
+      margin-top: 0;
+    }
+
+    .social-icons a {
+      margin-right: 10px;
+      font-size: 18px;
+      text-decoration: none;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    .faq-question {
+      cursor: pointer;
+      padding: 10px;
+      background-color: #f2f2f2;
+      margin: 5px 0;
+      border-radius: 6px;
+    }
+
+    .faq-answer {
+      display: none;
+      padding: 10px 15px;
+      background-color: #fff;
+      border-left: 3px solid #006cfa;
+      margin-bottom: 10px;
+      font-size: 15px;
+      color: #444;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="layout">
+      <!-- Sidebar -->
+      <div class="sidebar">
+        <a href="#details">Details</a>
+        <a href="#benefits">Benefits</a>
+        <a href="#eligibility">Eligibility</a>
+        <a href="#application-process">Application Process</a>
+        <a href="#documents-required">Documents Required</a>
+        <a href="#faq">Frequently Asked Questions</a>
+      </div>
+
+      <!-- Main Content -->
+      <div class="main-content">
+        <div class="title">Financial Assistance To Disabled Students Pursuing (10th, 11th, 12th Equivalent Exams)</div>
+        <div class="location">Kerala</div>
+
+        <div class="tags">
+          <span>APL</span>
+          <span>BPL</span>
+          <span>Disabled</span>
+          <span>Financial Assistance</span>
+          <span>PwD</span>
+          <span>Student</span>
+        </div>
+
+        <a class="check-eligibility" href="#">Check Eligibility</a>
+
+        <div class="section-title" id="details">Details</div>
+        <p class="details-text">
+          The scheme “Financial Assistance to Disabled Students Pursuing (10th, 11th, 12th Equivalent Exams)” was launched by the Department of Social Justice, Government of Kerala. Under the scheme, financial assistance will be provided to such school dropouts to pursue SSLC, +1, +2 equivalent courses implemented by State Literacy Mission.
+        </p>
+        <p class="details-text">
+          A person becomes disabled by birth or because of an accident or disease. The differently-abled persons face many hurdles in their day-to-day life. About 90% of disabled persons may not have received even primary education. They are forced to give up studies due to various factors, such as difficulty in going to educational institutions and inadequate road facilities.
+        </p>
+
+        <div class="section-title" id="benefits">Benefits</div>
+        <table border="1" cellpadding="10" cellspacing="0" style="border-collapse: collapse; width: 100%; font-size: 15px; margin-bottom: 30px;">
+          <thead style="background-color: #f0f0f0;">
+            <tr>
+              <th>Sl. No.</th>
+              <th>Class/Course</th>
+              <th>Course Fee Assistance</th>
+              <th>Exam Fee Assistance</th>
+              <th>Registration Fee Assistance</th>
+              <th>Admission Fee Assistance</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1</td>
+              <td>SSLC/10th Class</td>
+              <td>₹1750/-</td>
+              <td>₹500/-</td>
+              <td>₹100/-</td>
+              <td>--</td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td>11th Class</td>
+              <td>₹1950/-</td>
+              <td>₹700/-</td>
+              <td>₹100/-</td>
+              <td>₹200/-</td>
+            </tr>
+            <tr>
+              <td>3</td>
+              <td>12th Class</td>
+              <td>₹1950/-</td>
+              <td>--</td>
+              <td>--</td>
+              <td>--</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="section-title" id="eligibility">Eligibility</div>
+        <ul class="details-text" style="padding-left: 20px;">
+          <li>The applicant should be a resident of Kerala State.</li>
+          <li>The differently abled students with 40% or more disability are eligible to apply under the scheme.</li>
+          <li>Financial assistance will be provided to students falling in Above Poverty Line (APL) as well as Below Poverty Line (BPL) categories.</li>
+        </ul>
+
+        <div class="section-title" id="application-process">Application Process</div>
+        <p class="details-text"><strong>Offline</strong></p>
+        <ol class="details-text" style="padding-left: 20px; margin-bottom: 10px;">
+          <li><strong>Step 01:</strong> Visit the nearest Anganwadi Centre or District Social Justice Office and collect the application form. The <a href="#" style="color: #006cfa; text-decoration: underline;">application form</a> can also be downloaded from the official website.</li>
+          <li><strong>Step 02:</strong> Fill out the application form completely.</li>
+          <li><strong>Step 03:</strong> Submit the form to the District Social Justice Officers (DSJOs) or Anganwadi Centre.</li>
+        </ol>
+
+        <ul class="details-text" style="padding-left: 20px;">
+          <li><strong>Note 01:</strong> DSJOs must ensure applicants have completed courses and received certificates from the State Literacy Mission.</li>
+          <li><strong>Note 02:</strong> Beneficiaries are selected based on applications through Anganwadi workers and CDPOs.</li>
+        </ul>
+
+        <div class="section-title" id="documents-required">Documents Required</div>
+        <ul class="details-text" style="padding-left: 20px;">
+          <li>Identity proof</li>
+          <li>Passport-size photo</li>
+          <li>Educational Certificates</li>
+          <li>BPL Card (If applicable)</li>
+          <li>Disability Certificate</li>
+          <li>Income Certificate / Ration card</li>
+          <li>Bank account details</li>
+        </ul>
+
+        <div class="section-title" id="faq">Frequently Asked Questions</div>
+        <div class="faq-section">
+          <div class="faq-item">
+            <div class="faq-question"><strong>What is the “Financial Assistance to Disabled Students Pursuing (10th, 11th, 12th Equivalent Exams)” scheme?</strong></div>
+            <div class="faq-answer">This scheme provides financial support to differently-abled students in Kerala to pursue 10th to 12th equivalent courses via the State Literacy Mission.</div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-question"><strong>Which department has launched this scheme?</strong></div>
+            <div class="faq-answer">The Department of Social Justice, Government of Kerala.</div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-question"><strong>Who is eligible to get the benefits under the scheme?</strong></div>
+            <div class="faq-answer">Differently-abled students with 40% or more disability, who are residents of Kerala and belong to either APL or BPL categories.</div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-question"><strong>Which classes students will be eligible to apply under the scheme?</strong></div>
+            <div class="faq-answer">Students appearing for SSLC/10th, 11th, or 12th equivalent exams.</div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-question"><strong>Is this scheme only for differently abled students?</strong></div>
+            <div class="faq-answer">Yes, the scheme is exclusively for students with a minimum of 40% disability.</div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-question"><strong>Is this scheme only for a resident of Kerala?</strong></div>
+            <div class="faq-answer">Yes, the applicant must be a resident of Kerala to be eligible.</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right Panel -->
+      <div class="right-panel">
+        <div class="box">
+          <h4>News and Updates</h4>
+          <p>No new news and updates available</p>
+        </div>
+        <div class="box">
+          <h4>Share</h4>
+          <div class="social-icons">
+            <a href="#">📧</a>
+            <a href="#">📘</a>
+            <a href="#">💬</a>
+            <a href="#">❌</a>
+            <a href="#">🟢</a>
+            <a href="#">🔗</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- JavaScript for FAQ -->
+  <script>
+    document.querySelectorAll('.faq-question').forEach(function (question) {
+      question.addEventListener('click', function () {
+        const answer = this.nextElementSibling;
+        const isVisible = answer.style.display === 'block';
+
+        document.querySelectorAll('.faq-answer').forEach(function (ans) {
+          ans.style.display = 'none';
+        });
+
+        answer.style.display = isVisible ? 'none' : 'block';
+      });
+    });
+  </script>
+</body>
+</html>

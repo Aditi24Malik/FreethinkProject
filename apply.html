@@ -1,0 +1,208 @@
+<head>
+    <style>
+      /* General Reset and Page Styling */
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(to right, #f0f8ff, #e0f7fa); /* Matches homepage */
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  min-height: 100vh;
+  align-items: center;
+}
+
+/* Form Container */
+form#schemeForm {
+  background-color: #ffffff;
+  padding: 30px 45px;
+  border-radius: 10px;
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.1);
+  max-width: 750px;
+  width: 100%;
+  margin: 40px auto;
+}
+
+/* Heading */
+h2 {
+  text-align: center;
+  color: #004d99; /* Deep government blue */
+  margin-bottom: 25px;
+}
+
+/* Fieldsets */
+fieldset {
+  border: 1px solid #cfd8dc;
+  padding: 20px;
+  margin-bottom: 25px;
+  border-radius: 8px;
+  background-color: #fafafa;
+}
+
+/* Section titles */
+legend {
+  font-weight: bold;
+  font-size: 1.1em;
+  padding: 0 10px;
+  color: #004d99;
+}
+
+/* Labels */
+label {
+  display: block;
+  margin-bottom: 15px;
+  font-weight: 500;
+  color: #333;
+}
+
+/* Input & Textarea Styling */
+input[type="text"],
+input[type="date"],
+input[type="tel"],
+input[type="email"],
+input[type="number"],
+input[type="file"],
+textarea {
+  width: 100%;
+  padding: 10px;
+  margin-top: 5px;
+  border: 1px solid #b0bec5;
+  border-radius: 6px;
+  box-sizing: border-box;
+  font-size: 1em;
+}
+
+/* Textarea */
+textarea {
+  resize: vertical;
+}
+
+/* Radio Buttons */
+input[type="radio"] {
+  margin-right: 8px;
+  margin-left: 15px;
+}
+
+/* Submit Button */
+button[type="submit"] {
+  background-color: #1976d2; /* Deep blue from homepage */
+  color: white;
+  border: none;
+  padding: 14px 20px;
+  border-radius: 8px;
+  font-size: 1.1em;
+  cursor: pointer;
+  width: 100%;
+  transition: background-color 0.3s ease;
+}
+
+button[type="submit"]:hover {
+  background-color: #125ea5;
+}
+
+    </style>
+</head>
+<form id="schemeForm">
+    <h2>Scheme Application Form</h2>
+  
+    <!-- Scheme Information -->
+    <fieldset>
+      <legend>Scheme Information</legend>
+      <label>Enter Scheme Name: <input type="text" name="schemeName" required></label><br>
+      <label>Application Details: <textarea name="applicationDetails" rows="3" required></textarea></label>
+    </fieldset>
+  
+    <!-- Personal Information -->
+    <fieldset>
+      <legend>Personal Information</legend>
+      <label>Full Name: <input type="text" name="fullName" required></label><br>
+      <label>Date of Birth: <input type="date" name="dob" required></label><br>
+      
+      <label>Gender:<br>
+        <input type="radio" name="gender" value="Male" required> Male
+        <input type="radio" name="gender" value="Female"> Female
+        <input type="radio" name="gender" value="Other"> Other
+      </label><br>
+  
+      <label>Street: <input type="text" name="street" required></label><br>
+      <label>City: <input type="text" name="city" required></label><br>
+      <label>State: <input type="text" name="state" required></label><br>
+      <label>Pin Code: <input type="text" name="pin" required></label><br>
+      <label>Phone Number: <input type="tel" name="phone" required></label><br>
+      <label>Email (if applicable): <input type="email" name="email"></label>
+    </fieldset>
+  
+    <!-- Income and Eligibility -->
+    <fieldset>
+      <legend>Income and Eligibility</legend>
+      <label>Annual Income: <input type="number" name="income" required></label><br>
+      
+      <label>Category:<br>
+        <input type="radio" name="category" value="General" required> General
+        <input type="radio" name="category" value="SC"> SC
+        <input type="radio" name="category" value="ST"> ST
+        <input type="radio" name="category" value="OBC"> OBC
+        <input type="radio" name="category" value="Others"> Others
+      </label><br>
+  
+      <label>Are you currently availing benefits from any other government scheme?<br>
+        <input type="radio" name="otherBenefits" value="Yes" required> Yes
+        <input type="radio" name="otherBenefits" value="No"> No
+      </label>
+    </fieldset>
+  
+    <!-- Bank Details -->
+    <fieldset>
+      <legend>Bank Account Details</legend>
+      <label>Bank Name: <input type="text" name="bankName" required></label><br>
+      <label>Account Number: <input type="text" name="accountNumber" required></label><br>
+      <label>IFSC Code: <input type="text" name="ifsc" required></label>
+    </fieldset>
+  
+    <!-- Document Upload -->
+    <fieldset>
+      <legend>Upload Supporting Document</legend>
+      <label>Upload Document: <input type="file" name="doc" required></label>
+    </fieldset>
+  
+    <br>
+    <button type="submit">Submit Application</button>
+  </form>
+  
+  <script>
+    document.getElementById('schemeForm').addEventListener('submit', function (e) {
+    e.preventDefault();
+    localStorage.setItem('workflowStep', '0');
+    const formData = new FormData(this);
+    localStorage.setItem('applicantName', formData.get('fullName'));
+    window.location.href = 'workflow.html'; // Redirect to workflow page
+    // Simulate sending to backend
+    fetch('/api/apply', {
+      method: 'POST',
+      body: formData,
+    })
+    .then(() => alert('Application submitted successfully!'));
+  });
+
+  localStorage.setItem('applicantName', form.fullName.value);
+
+  let currentStep = parseInt(localStorage.getItem('workflowStep')) || -1;
+
+function advanceStep() {
+  if (currentStep < steps.length - 1) {
+    if (currentStep >= 0) steps[currentStep].classList.remove('active');
+    currentStep++;
+    steps[currentStep].classList.add('active');
+    localStorage.setItem('workflowStep', currentStep);
+  } else {
+    alert("All steps are already completed!");
+  }
+}
+
+const password = prompt("Enter admin password:");
+if (password === "yourSecret123") {
+  document.getElementById('adminControls').style.display = 'block';
+}
+
+  </script>
+  

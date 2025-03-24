@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>My Profile</title>
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    .profile-container {
+      max-width: 600px;
+      margin: 40px auto;
+      background-color: #ffffff;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+      text-align: left;
+    }
+
+    .profile-container h2 {
+      text-align: center;
+      color: #004d99;
+      margin-bottom: 30px;
+    }
+
+    .profile-field {
+      margin-bottom: 20px;
+    }
+
+    .profile-field label {
+      display: block;
+      font-weight: bold;
+      margin-bottom: 8px;
+      color: #333;
+    }
+
+    .profile-field input,
+    .profile-field textarea {
+      width: 100%;
+      padding: 10px;
+      font-size: 1em;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+    }
+
+    .schemes-applied {
+      background-color: #f0f8ff;
+      padding: 15px;
+      border-radius: 8px;
+      margin-top: 30px;
+    }
+
+    .schemes-applied ul {
+      padding-left: 20px;
+    }
+
+    .schemes-applied li a {
+      color: #1976d2;
+      text-decoration: none;
+    }
+
+    .schemes-applied li a:hover {
+      text-decoration: underline;
+    }
+
+    .button-group {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      margin-top: 20px;
+    }
+
+    .btn {
+      background-color: #1976d2;
+      color: white;
+      padding: 12px 25px;
+      border: none;
+      border-radius: 6px;
+      font-size: 1em;
+      cursor: pointer;
+    }
+
+    .btn:hover {
+      background-color: #125ea5;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="profile-container">
+    <h2>My Profile</h2>
+
+    <div class="profile-field">
+      <label for="name">Name</label>
+      <input type="text" id="name" placeholder="Enter your full name" disabled>
+    </div>
+
+    <div class="profile-field">
+      <label for="address">Address</label>
+      <textarea id="address" rows="3" placeholder="Enter your address" disabled></textarea>
+    </div>
+
+    <div class="profile-field">
+      <label for="phone">Phone Number</label>
+      <input type="tel" id="phone" placeholder="Enter your phone number" disabled>
+    </div>
+
+    <div class="profile-field">
+      <label for="email">Email</label>
+      <input type="email" id="email" placeholder="Enter your email address" disabled>
+    </div>
+
+    <div class="schemes-applied">
+      <h3>Schemes Applied</h3>
+      <ul id="schemeList">
+        <li>No schemes applied yet</li>
+        <!-- Future scheme links can be added dynamically here -->
+      </ul>
+    </div>
+
+    <div class="button-group">
+      <button class="btn" onclick="enableEdit()">Edit</button>
+      <button class="btn" onclick="saveChanges()">Save</button>
+    </div>
+  </div>
+
+  <script>
+    function enableEdit() {
+      document.querySelectorAll('input, textarea').forEach(field => {
+        field.disabled = false;
+      });
+    }
+
+    function saveChanges() {
+      document.querySelectorAll('input, textarea').forEach(field => {
+        field.disabled = true;
+      });
+      alert('Changes saved successfully!');
+    }
+  </script>
+
+</body>
+</html>

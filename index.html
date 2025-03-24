@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Government Schemes</title>
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    /* General Reset and Base Styles */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(to right, #f0f8ff, #e0f7fa);
+  color: #333;
+  text-align: center;
+  position: relative;
+}
+
+/* Profile Section */
+.profile-link {
+  position: absolute;
+  top: 15px;
+  right: 25px;
+  text-decoration: none;
+  z-index: 10;
+}
+
+.profile-section {
+  display: flex;
+  align-items: center;
+  background-color: #ffffff;
+  padding: 8px 14px;
+  border-radius: 25px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s ease;
+}
+
+.profile-section:hover {
+  background-color: #f0f0f0;
+}
+
+.profile-icon {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: 2px solid #004d99;
+  margin-right: 10px;
+}
+
+.profile-name {
+  font-weight: bold;
+  color: #004d99;
+  font-size: 0.95em;
+}
+
+/* Header */
+h1 {
+  background-color: #004d99;
+  color: white;
+  padding: 25px 0;
+  margin: 0;
+  font-size: 2em;
+  border-bottom: 5px solid #ffcc00;
+}
+
+/* Hero Image */
+.hero-image {
+  width: 100%;
+  max-height: 350px;
+  object-fit: cover;
+  border-bottom: 5px solid #ffcc00;
+  margin-bottom: 20px;
+  border-radius: 0;
+}
+
+/* Navigation Links as Button-style */
+.nav-links {
+  margin: 30px 0;
+}
+
+.nav-links a {
+  display: inline-block;
+  margin: 0 10px;
+  padding: 12px 22px;
+  background-color: #1976d2;
+  color: white;
+  text-decoration: none;
+  border-radius: 6px;
+  font-weight: bold;
+  transition: background-color 0.3s ease, transform 0.2s;
+}
+
+.nav-links a:hover {
+  background-color: #125ea5;
+  transform: translateY(-2px);
+}
+
+/* Call to Action Button */
+.cta-button {
+  background-color: #1b8d34;
+  color: white;
+  border: none;
+  padding: 14px 28px;
+  border-radius: 8px;
+  font-size: 1em;
+  cursor: pointer;
+  font-weight: bold;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s ease, transform 0.2s;
+}
+
+.cta-button:hover {
+  background-color: #15762a;
+  transform: translateY(-2px);
+}
+
+/* Scheme Cards */
+.scheme-stats {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  margin: 40px auto 20px;
+  flex-wrap: wrap;
+}
+
+.scheme-card {
+  background-color: #e6faef;
+  padding: 30px;
+  border-radius: 16px;
+  width: 200px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  transition: transform 0.2s;
+}
+
+.scheme-card:hover {
+  transform: translateY(-5px);
+}
+
+.scheme-card h2 {
+  font-size: 2em;
+  color: #1b5e20;
+  margin: 0;
+}
+
+.scheme-card p {
+  margin-top: 8px;
+  font-weight: 500;
+  color: #333;
+}
+
+/* Filter Tabs */
+.filter-tabs {
+  display: flex;
+  justify-content: center;
+  margin-top: 30px;
+}
+
+.tab {
+  padding: 12px 20px;
+  border-radius: 8px;
+  margin: 0 10px;
+  background-color: #e3f2fd;
+  color: #1565c0;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+.tab:hover {
+  background-color: #bbdefb;
+  transform: translateY(-2px);
+}
+
+.tab.active {
+  background-color: #1565c0;
+  color: white;
+  font-weight: bold;
+}
+
+/* About Section */
+.about {
+  background-color: #ffffff;
+  padding: 40px 20px;
+  margin: 30px auto;
+  max-width: 1000px;
+  border-radius: 12px;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+  text-align: left;
+}
+
+.about h2 {
+  color: #004d99;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.about p {
+  font-size: 1.1em;
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+.about-image {
+  display: block;
+  margin: 0 auto 25px auto;
+  max-width: 100%;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .image-flex {
+    flex-direction: column;
+  }
+
+  .nav-links a {
+    display: block;
+    margin: 10px auto;
+  }
+
+  .scheme-stats {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .filter-tabs {
+    flex-direction: column;
+  }
+
+  .tab {
+    margin-bottom: 10px;
+  }
+}
+
+    .box-style {
+        border: 1px solid #ccc;
+        padding: 1rem;
+        border-radius: 8px;
+    }
+    .category-grid {
+      display: none;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+
+    .category-card {
+      text-align: center;
+      width: 180px;
+    }
+
+    .category-card img {
+      width: 60px;
+      height: 60px;
+      margin-bottom: 10px;
+    }
+
+    .category-card .count {
+      font-weight: bold;
+      color: #2e7d32;
+    }
+
+    .filter-tabs {
+      display: flex;
+      justify-content: center;
+      margin-top: 30px;
+      gap: 1rem;
+    }
+
+    .tab {
+      padding: 10px 20px;
+      border: 1px solid #ccc;
+      cursor: pointer;
+      border-radius: 6px;
+      font-weight: bold;
+    }
+
+    .tab.active {
+      background-color: #2e7d32;
+      color: white;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header & Hero Image -->
+  <h1>Welcome to Government Scheme Portal</h1>
+  <div class="image-flex">
+    <img src="govt1.jpg" alt="Government Schemes Banner" class="hero-image">
+  </div>
+
+  <!-- Navigation Links -->
+  <div class="nav-links">
+    <a href="apply.html">Apply for Scheme</a> |
+    <a href="signup.html">Sign Up</a>
+  </div>
+
+  <!-- Scheme Stats Section -->
+  <div class="scheme-stats">
+    <div class="scheme-card">
+      <h2>3250+</h2>
+      <p>Total Schemes →</p>
+    </div>
+    <div class="scheme-card">
+      <h2>530+</h2>
+      <p>Central Schemes →</p>
+    </div>
+    <div class="scheme-card">
+      <h2>2720+</h2>
+      <p>States/UTs Schemes →</p>
+    </div>
+  </div>
+
+  <!-- Tab Filters -->
+  <div class="filter-tabs">
+    <div class="tab" onclick="showCategories(event)">Categories</div>
+    <div class="tab" onclick="showStates(event)">States/UTs</div>
+    <div class="tab" onclick="showMinistries(event)">Central Ministries</div>
+  </div>
+
+  <!-- Categories Grid (Initially Hidden) -->
+  <div id="categoryGrid" class="category-grid">
+    <h2 style="width: 100%; text-align: center; color: black;">Find schemes based on categories</h2>
+    <div class="category-card">
+      <img src="agriculture.png" alt="Agriculture">
+      <div class="count">422 Schemes</div>
+      <p>Agriculture, Rural & Environment</p>
+    </div>
+    <div class="category-card">
+      <img src="banking.png" alt="Banking">
+      <div class="count">217 Schemes</div>
+      <p>Banking, Financial Services and Insurance</p>
+    </div>
+    <div class="category-card">
+      <img src="business.png" alt="Business">
+      <div class="count">491 Schemes</div>
+      <p>Business & Entrepreneurship</p>
+    </div>
+    <div class="category-card">
+      <img src="education.png" alt="Education">
+      <div class="count">792 Schemes</div>
+      <p>Education & Learning</p>
+    </div>
+    <div class="category-card">
+      <img src="healthcare.png" alt="Health">
+      <div class="count">220 Schemes</div>
+      <p>Health & Wellness</p>
+    </div>
+    <div class="category-card">
+      <img src="housing.png" alt="Housing">
+      <div class="count">92 Schemes</div>
+      <p>Housing & Shelter</p>
+    </div>
+    <div class="category-card">
+      <img src="law.png" alt="Law">
+      <div class="count">9 Schemes</div>
+      <p>Public Safety, Law & Justice</p>
+    </div>
+    <div class="category-card">
+      <img src="science.png" alt="Science">
+      <div class="count">64 Schemes</div>
+      <p>Science, IT & Communications</p>
+    </div>
+    <div class="category-card">
+      <img src="skills.png" alt="Skills">
+      <div class="count">261 Schemes</div>
+      <p>Skills & Employment</p>
+    </div>
+    <div class="category-card">
+      <img src="social.png" alt="Social Welfare">
+      <div class="count">1255 Schemes</div>
+      <p>Social Welfare & Empowerment</p>
+    </div>
+  </div>
+
+  <!-- States/UTs Grid (Initially Hidden) -->
+<div id="stateGrid" class="category-grid">
+    <h2 style="width: 100%; text-align: center; color: black;">Explore Schemes on States/UTs</h2>
+    <div class="category-card" style="border: 1px solid #ccc; padding: 1rem; border-radius: 8px;">
+      <div class="count">19 UT<br>514 Central</div>
+      <p>Andaman and Nicobar</p>
+    </div>
+    <div class="category-card" style="border: 1px solid #ccc; padding: 1rem; border-radius: 8px;">
+      <div class="count">66 State<br>515 Central</div>
+      <p>Andhra Pradesh</p>
+    </div>
+    <div class="category-card" style="border: 1px solid #ccc; padding: 1rem; border-radius: 8px;">
+      <div class="count">35 State<br>519 Central</div>
+      <p>Arunachal Pradesh</p>
+    </div>
+    <div class="category-card" style="border: 1px solid #ccc; padding: 1rem; border-radius: 8px;">
+      <div class="count">47 State<br>520 Central</div>
+      <p>Assam</p>
+    </div>
+    <div class="category-card" style="border: 1px solid #ccc; padding: 1rem; border-radius: 8px;">
+      <div class="count">101 State<br>514 Central</div>
+      <p>Bihar</p>
+    </div>
+    <div class="category-card" style="border: 1px solid #ccc; padding: 1rem; border-radius: 8px;">
+      <div class="count">20 UT<br>514 Central</div>
+      <p>Chandigarh</p>
+    </div>
+    <div class="category-card" style="border: 1px solid #ccc; padding: 1rem; border-radius: 8px;">
+      <div class="count">89 State<br>515 Central</div>
+      <p>Chhattisgarh</p>
+    </div>
+    <div class="category-card" style="border: 1px solid #ccc; padding: 1rem; border-radius: 8px;">
+      <div class="count">41 UT<br>515 Central</div>
+      <p>Delhi</p>
+    </div>
+    <div class="category-card" style="border: 1px solid #ccc; padding: 1rem; border-radius: 8px;">
+      <div class="count">146 State<br>515 Central</div>
+      <p>Goa</p>
+    </div>
+    <div class="category-card" style="border: 1px solid #ccc; padding: 1rem; border-radius: 8px;">
+      <div class="count">229 State<br>516 Central</div>
+      <p>Gujarat</p>
+    </div>
+    <div class="category-card" style="border: 1px solid #ccc; padding: 1rem; border-radius: 8px;">
+      <div class="count">189 State<br>514 Central</div>
+      <p>Haryana</p>
+    </div>
+    <div class="category-card" style="border: 1px solid #ccc; padding: 1rem; border-radius: 8px;">
+      <div class="count">67 State<br>514 Central</div>
+      <p>Himachal Pradesh</p>
+    </div>
+    <div class="category-card" style="border: 1px solid #ccc; padding: 1rem; border-radius: 8px;">
+      <div class="count">45 UT<br>518 Central</div>
+      <p>Jammu and Kashmir</p>
+    </div>
+    <div class="category-card" style="border: 1px solid #ccc; padding: 1rem; border-radius: 8px;">
+      <div class="count">95 State<br>514 Central</div>
+      <p>Jharkhand</p>
+    </div>
+    <div class="category-card" style="border: 1px solid #ccc; padding: 1rem; border-radius: 8px;">
+      <div class="count">62 State<br>515 Central</div>
+      <p>Karnataka</p>
+    </div>
+    <div class="category-card" style="border: 1px solid #ccc; padding: 1rem; border-radius: 8px; cursor:pointer" onclick="window.location.href='scheme_details.html'">
+      <a href="scheme_details.html" style="text-decoration: none; color: inherit;">
+      <div class="count">73 State<br>516 Central</div>
+      <p>Kerala</p>
+    </a>
+      </div>
+  </div>
+  
+  <!-- Central Ministries Grid (Initially Hidden) -->
+<div id="ministryGrid" class="category-grid">
+    <h2 style="width: 100%; text-align: center; color: black;">Explore schemes of Central schemes</h2>
+    <div class="category-card box-style">
+      <p>Comptroller And Auditor General of India</p>
+      <div class="count">2 Schemes</div>
+    </div>
+    <div class="category-card box-style">
+      <p>Ministry Of Agriculture and Farmers Welfare</p>
+      <div class="count">47 Schemes</div>
+    </div>
+    <div class="category-card box-style">
+      <p>Ministry Of Chemicals And Fertilizers</p>
+      <div class="count">2 Schemes</div>
+    </div>
+    <div class="category-card box-style">
+      <p>Ministry Of Commerce And Industry</p>
+      <div class="count">28 Schemes</div>
+    </div>
+    <div class="category-card box-style">
+      <p>Ministry Of Communication</p>
+      <div class="count">5 Schemes</div>
+    </div>
+    <div class="category-card box-style">
+      <p>Ministry Of Consumer Affairs, Food and Public Distribution</p>
+      <div class="count">1 Schemes</div>
+    </div>
+    <div class="category-card box-style">
+      <p>Ministry of Corporate Affairs</p>
+      <div class="count">2 Schemes</div>
+    </div>
+    <div class="category-card box-style">
+      <p>Ministry Of Culture</p>
+      <div class="count">13 Schemes</div>
+    </div>
+    <div class="category-card box-style">
+      <p>Ministry Of Defence</p>
+      <div class="count">11 Schemes</div>
+    </div>
+    <div class="category-card box-style">
+      <p>Ministry Of Development of North Eastern Region</p>
+      <div class="count">1 Schemes</div>
+    </div>
+    <div class="category-card box-style">
+      <p>Ministry Of Earth Sciences</p>
+      <div class="count">1 Schemes</div>
+    </div>
+    <div class="category-card box-style">
+      <p>Ministry of Education</p>
+      <div class="count">72 Schemes</div>
+    </div>
+    <div class="category-card box-style">
+      <p>Ministry of Electronics and Information Technology</p>
+      <div class="count">6 Schemes</div>
+    </div>
+    <div class="category-card box-style">
+      <p>Ministry Of Environment, forests and climate change</p>
+      <div class="count">2 Schemes</div>
+    </div>
+    <div class="category-card box-style">
+      <p>Ministry Of External Affairs</p>
+      <div class="count">4 Schemes</div>
+    </div>
+  </div>
+  
+
+  <!-- About Section -->
+  <section class="about">
+    <h2>About This Portal</h2>
+    <div class="image-flex">
+      <img src="govt2.jpg" alt="Digital India" class="about-image">
+    </div>
+    <p>
+      The Government Scheme Portal is a centralized platform designed to help citizens apply for various government schemes with ease. It streamlines the application process and ensures transparency at every step.
+    </p>
+    <p>
+      Applicants can track their application status as it moves through verification, scrutiny, and final approval by the concerned officers. The portal supports multiple schemes and ensures a smooth and accessible experience for all users.
+    </p>
+    <p>
+      Our goal is to make government services more accessible, efficient, and citizen-friendly.
+    </p>
+  </section>
+
+  <script>
+    function showCategories(event) {
+      document.getElementById("categoryGrid").style.display = "flex";
+      document.getElementById("stateGrid").style.display="none";
+      document.getElementById("ministryGrid").style.display="none";
+      setActiveTab(event.target);
+    }
+    function showStates(event) {
+      document.getElementById("categoryGrid").style.display = "none";
+      document.getElementById("stateGrid").style.display="flex";
+      document.getElementById("ministryGrid").style.display="none";
+      setActiveTab(event.target);
+    }
+    function showMinistries(event) 
+    {
+    document.getElementById("categoryGrid").style.display = "none";
+    document.getElementById("stateGrid").style.display = "none";
+    document.getElementById("ministryGrid").style.display = "flex";
+    setActiveTab(event.target);
+    }
+    function setActiveTab(clickedTab)
+    {
+        const tabs = document.querySelectorAll('.tab');
+        tabs.forEach(tab => tab.classList.remove('active'));
+        clickedTab.classList.add('active');
+    }
+  </script>
+
+</body>
+</html>
